@@ -7,6 +7,8 @@ using GameOfLife.Models;
 using GameOfLife.Views;
 using System.Threading;
 using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace GameOfLife.Controllers {
 	public class Controller {
@@ -15,11 +17,13 @@ namespace GameOfLife.Controllers {
 		private BoardView view;
 		private const int BOARD_SIZE = 20;
 		private int RefreshInterval = 125;
-		private Timer timer;
+		private System.Threading.Timer timer;
+		private Assembly assembly;
 
 		public Controller(Model model, BoardView view) {
 			this.model = model;
 			this.view = view;
+			this.assembly = Assembly.GetExecutingAssembly();
 		}
 
 		public void HandlePanelClick(int column, int row) {
@@ -31,7 +35,7 @@ namespace GameOfLife.Controllers {
 			if (timer != null) {
 				timer.Dispose();
 			}
-			timer = new Timer(BeginEvolution, this, 0, RefreshInterval);
+			timer = new System.Threading.Timer(BeginEvolution, this, 0, RefreshInterval);
 		}
 
 		private static void BeginEvolution(object obj) {
@@ -123,6 +127,10 @@ namespace GameOfLife.Controllers {
 
 		public void LoadFile(string filePath) {
 			string[] lines = File.ReadAllLines(filePath);
+			UpdateBoardFromStringArray(lines);
+		}
+
+		private void UpdateBoardFromStringArray(string[] lines) {
 			for (int row = 0; row < BOARD_SIZE; row++) {
 				for (int column = 0; column < BOARD_SIZE; column++) {
 					if (lines[row][column] == '1') {
@@ -134,6 +142,40 @@ namespace GameOfLife.Controllers {
 					}
 				}
 			}
+		}
+
+		public void LoadTemplate(string resourceName) {
+			try {
+				
+
+				StreamReader reader = new StreamReader(this.assembly.GetManifestResourceStream(resourceName));
+				List<string> resourceText = new List<string>();
+				while (!reader.EndOfStream) {
+					resourceText.Add(reader.ReadLine());
+				}
+				string[] lines = resourceText.ToArray();
+				this.UpdateBoardFromStringArray(lines);
+			} catch {
+				MessageBox.Show("Error reading resource");
+			}
+			
+
+		}
+
+		public void MakeBlinker() {
+			this.LoadTemplate("GameOfLife.Controllers.Templates.Blinker.txt");
+		}
+
+		public void MakeGlider() {
+			this.LoadTemplate("GameOfLife.Controllers.Templates.Glider.txt");
+		}
+
+		public void MakeDiehard() {
+			this.LoadTemplate("GameOfLife.Controllers.Templates.Diehard.txt");
+		}
+
+		public void MakePulsar() {
+			this.LoadTemplate("GameOfLife.Controllers.Templates.Pulsar.txt");
 		}
 	}
 }

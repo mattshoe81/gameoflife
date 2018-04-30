@@ -42,6 +42,11 @@
 			this.resetButton = new System.Windows.Forms.Button();
 			this.beginButton = new System.Windows.Forms.Button();
 			this.LoadFileDialog = new System.Windows.Forms.OpenFileDialog();
+			this.templatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.blinkerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.gliderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.diehardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pulsarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -71,7 +76,7 @@
 			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
 			this.board.Dock = System.Windows.Forms.DockStyle.Top;
 			this.board.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.board.Location = new System.Drawing.Point(0, 49);
+			this.board.Location = new System.Drawing.Point(0, 52);
 			this.board.Name = "board";
 			this.board.RowCount = 20;
 			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
@@ -105,7 +110,7 @@
             this.generationsToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1168, 49);
+			this.menuStrip1.Size = new System.Drawing.Size(1168, 52);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -114,7 +119,7 @@
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loadFileToolStripMenuItem});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 45);
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 48);
 			this.fileToolStripMenuItem.Text = "File";
 			// 
 			// loadFileToolStripMenuItem
@@ -127,9 +132,10 @@
 			// generationsToolStripMenuItem
 			// 
 			this.generationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.templatesToolStripMenuItem});
 			this.generationsToolStripMenuItem.Name = "generationsToolStripMenuItem";
-			this.generationsToolStripMenuItem.Size = new System.Drawing.Size(190, 45);
+			this.generationsToolStripMenuItem.Size = new System.Drawing.Size(190, 48);
 			this.generationsToolStripMenuItem.Text = "Generations";
 			// 
 			// toolStripMenuItem1
@@ -145,7 +151,7 @@
             this.toolStripMenuItem9,
             this.toolStripMenuItem10});
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(244, 46);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(396, 46);
 			this.toolStripMenuItem1.Text = "LifeSpan";
 			// 
 			// lifeSpan60
@@ -250,6 +256,45 @@
 			this.beginButton.UseVisualStyleBackColor = true;
 			this.beginButton.Click += new System.EventHandler(this.beginButton_Click);
 			// 
+			// templatesToolStripMenuItem
+			// 
+			this.templatesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.blinkerToolStripMenuItem,
+            this.gliderToolStripMenuItem,
+            this.diehardToolStripMenuItem,
+            this.pulsarToolStripMenuItem});
+			this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
+			this.templatesToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.templatesToolStripMenuItem.Text = "Templates";
+			// 
+			// blinkerToolStripMenuItem
+			// 
+			this.blinkerToolStripMenuItem.Name = "blinkerToolStripMenuItem";
+			this.blinkerToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.blinkerToolStripMenuItem.Text = "Blinker";
+			this.blinkerToolStripMenuItem.Click += new System.EventHandler(this.blinkerToolStripMenuItem_Click);
+			// 
+			// gliderToolStripMenuItem
+			// 
+			this.gliderToolStripMenuItem.Name = "gliderToolStripMenuItem";
+			this.gliderToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.gliderToolStripMenuItem.Text = "Glider";
+			this.gliderToolStripMenuItem.Click += new System.EventHandler(this.gliderToolStripMenuItem_Click);
+			// 
+			// diehardToolStripMenuItem
+			// 
+			this.diehardToolStripMenuItem.Name = "diehardToolStripMenuItem";
+			this.diehardToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.diehardToolStripMenuItem.Text = "Diehard";
+			this.diehardToolStripMenuItem.Click += new System.EventHandler(this.diehardToolStripMenuItem_Click);
+			// 
+			// pulsarToolStripMenuItem
+			// 
+			this.pulsarToolStripMenuItem.Name = "pulsarToolStripMenuItem";
+			this.pulsarToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.pulsarToolStripMenuItem.Text = "Pulsar";
+			this.pulsarToolStripMenuItem.Click += new System.EventHandler(this.pulsarToolStripMenuItem_Click);
+			// 
 			// BoardView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -292,6 +337,11 @@
 		private System.Windows.Forms.ToolStripMenuItem lifeSpan750;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+		private System.Windows.Forms.ToolStripMenuItem templatesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem blinkerToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem gliderToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem diehardToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pulsarToolStripMenuItem;
 	}
 }
 

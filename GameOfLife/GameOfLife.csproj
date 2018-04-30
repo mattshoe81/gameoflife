@@ -82,6 +82,13 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Controllers\Templates\Blinker.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controllers\Templates\Diehard.txt" />
+    <EmbeddedResource Include="Controllers\Templates\Glider.txt" />
+    <EmbeddedResource Include="Controllers\Templates\Pulsar.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

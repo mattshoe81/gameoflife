@@ -110,6 +110,21 @@ namespace GameOfLife.Views {
 		private void lifeSpan1000_Click(object sender, EventArgs e) {
 			this.controller.SetRefreshInterval(1000);
 		}
-	
+
+		private void blinkerToolStripMenuItem_Click(object sender, EventArgs e) {
+			this.controller.MakeBlinker();
+		}
+
+		private void gliderToolStripMenuItem_Click(object sender, EventArgs e) {
+			this.controller.MakeGlider();
+		}
+
+		private void diehardToolStripMenuItem_Click(object sender, EventArgs e) {
+			this.controller.MakeDiehard();
+		}
+
+		private void pulsarToolStripMenuItem_Click(object sender, EventArgs e) {
+			this.controller.MakePulsar();
+		}
 	}
 }
