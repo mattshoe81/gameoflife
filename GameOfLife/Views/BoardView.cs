@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameOfLife.Controllers;
+using System.IO;
 
 namespace GameOfLife.Views {
 	public partial class BoardView : Form {
@@ -68,7 +69,7 @@ namespace GameOfLife.Views {
 		private void loadFileToolStripMenuItem_Click(object sender, EventArgs e) {
 			this.LoadFileDialog.ShowDialog();
 			string filePath = LoadFileDialog.FileName;
-			if (LoadFileDialog.CheckFileExists) {
+			if (File.Exists(filePath)) { 
 				this.controller.LoadFile(filePath);
 			}
 		

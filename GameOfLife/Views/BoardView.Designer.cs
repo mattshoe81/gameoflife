@@ -129,7 +129,7 @@
 			this.generationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
 			this.generationsToolStripMenuItem.Name = "generationsToolStripMenuItem";
-			this.generationsToolStripMenuItem.Size = new System.Drawing.Size(190, 48);
+			this.generationsToolStripMenuItem.Size = new System.Drawing.Size(190, 45);
 			this.generationsToolStripMenuItem.Text = "Generations";
 			// 
 			// toolStripMenuItem1
@@ -145,7 +145,7 @@
             this.toolStripMenuItem9,
             this.toolStripMenuItem10});
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(396, 46);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(244, 46);
 			this.toolStripMenuItem1.Text = "LifeSpan";
 			// 
 			// lifeSpan60
@@ -249,10 +249,6 @@
 			this.beginButton.Text = "Let there be life!";
 			this.beginButton.UseVisualStyleBackColor = true;
 			this.beginButton.Click += new System.EventHandler(this.beginButton_Click);
-			// 
-			// LoadFileDialog
-			// 
-			this.LoadFileDialog.FileName = "openFileDialog1";
 			// 
 			// BoardView
 			// 
