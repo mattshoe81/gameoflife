@@ -162,20 +162,8 @@ namespace GameOfLife.Controllers {
 
 		}
 
-		public void MakeBlinker() {
-			this.LoadTemplate("GameOfLife.Controllers.Templates.Blinker.txt");
-		}
-
-		public void MakeGlider() {
-			this.LoadTemplate("GameOfLife.Controllers.Templates.Glider.txt");
-		}
-
-		public void MakeDiehard() {
-			this.LoadTemplate("GameOfLife.Controllers.Templates.Diehard.txt");
-		}
-
-		public void MakePulsar() {
-			this.LoadTemplate("GameOfLife.Controllers.Templates.Pulsar.txt");
+		public void MakeTemplate(string resourceName) {
+			this.LoadTemplate(resourceName);
 		}
 	}
 }

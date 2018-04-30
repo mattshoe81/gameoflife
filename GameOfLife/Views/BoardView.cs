@@ -112,19 +112,31 @@ namespace GameOfLife.Views {
 		}
 
 		private void blinkerToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeBlinker();
+			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Blinker.txt");
 		}
 
 		private void gliderToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeGlider();
+			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Glider.txt");
 		}
 
 		private void diehardToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeDiehard();
+			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Diehard.txt");
 		}
 
 		private void pulsarToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakePulsar();
+			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Pulsar.txt");
+		}
+
+		private void rPentominoToolStripMenuItem_Click(object sender, EventArgs e) {
+			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.R-Pentomino.txt");
+		}
+
+		private void blockyBlockToolStripMenuItem_Click(object sender, EventArgs e) {
+			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.BlockyBlock.txt");
+		}
+
+		private void spaceShipToolStripMenuItem_Click(object sender, EventArgs e) {
+			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Spaceship.txt");
 		}
 	}
 }

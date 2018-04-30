@@ -47,6 +47,9 @@
 			this.gliderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.diehardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.pulsarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.rPentominoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.blockyBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.spaceShipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -262,10 +265,13 @@
             this.blinkerToolStripMenuItem,
             this.gliderToolStripMenuItem,
             this.diehardToolStripMenuItem,
-            this.pulsarToolStripMenuItem});
+            this.pulsarToolStripMenuItem,
+            this.rPentominoToolStripMenuItem,
+            this.blockyBlockToolStripMenuItem,
+            this.spaceShipToolStripMenuItem});
 			this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
 			this.templatesToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
-			this.templatesToolStripMenuItem.Text = "Templates";
+			this.templatesToolStripMenuItem.Text = "Samples";
 			// 
 			// blinkerToolStripMenuItem
 			// 
@@ -294,6 +300,27 @@
 			this.pulsarToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
 			this.pulsarToolStripMenuItem.Text = "Pulsar";
 			this.pulsarToolStripMenuItem.Click += new System.EventHandler(this.pulsarToolStripMenuItem_Click);
+			// 
+			// rPentominoToolStripMenuItem
+			// 
+			this.rPentominoToolStripMenuItem.Name = "rPentominoToolStripMenuItem";
+			this.rPentominoToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.rPentominoToolStripMenuItem.Text = "R-Pentomino";
+			this.rPentominoToolStripMenuItem.Click += new System.EventHandler(this.rPentominoToolStripMenuItem_Click);
+			// 
+			// blockyBlockToolStripMenuItem
+			// 
+			this.blockyBlockToolStripMenuItem.Name = "blockyBlockToolStripMenuItem";
+			this.blockyBlockToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.blockyBlockToolStripMenuItem.Text = "Blocky Block";
+			this.blockyBlockToolStripMenuItem.Click += new System.EventHandler(this.blockyBlockToolStripMenuItem_Click);
+			// 
+			// spaceShipToolStripMenuItem
+			// 
+			this.spaceShipToolStripMenuItem.Name = "spaceShipToolStripMenuItem";
+			this.spaceShipToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.spaceShipToolStripMenuItem.Text = "SpaceShip";
+			this.spaceShipToolStripMenuItem.Click += new System.EventHandler(this.spaceShipToolStripMenuItem_Click);
 			// 
 			// BoardView
 			// 
@@ -342,6 +369,9 @@
 		private System.Windows.Forms.ToolStripMenuItem gliderToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem diehardToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem pulsarToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem rPentominoToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem blockyBlockToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem spaceShipToolStripMenuItem;
 	}
 }
 
