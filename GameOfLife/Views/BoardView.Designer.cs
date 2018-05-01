@@ -23,6 +23,7 @@
 		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent() {
+			this.board = new System.Windows.Forms.TableLayoutPanel();
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.loadFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,19 +47,66 @@
 			this.rPentominoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.blockyBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.spaceShipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.boardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.sizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.resetButton = new System.Windows.Forms.Button();
 			this.beginButton = new System.Windows.Forms.Button();
 			this.LoadFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.TemplateFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// board
+			// 
+			this.board.ColumnCount = 20;
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.Dock = System.Windows.Forms.DockStyle.Top;
+			this.board.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.board.Location = new System.Drawing.Point(0, 52);
+			this.board.Name = "board";
+			this.board.RowCount = 20;
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+			this.board.Size = new System.Drawing.Size(1168, 980);
+			this.board.TabIndex = 0;
 			// 
 			// menuStrip1
 			// 
@@ -66,11 +114,10 @@
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.generationsToolStripMenuItem,
-            this.boardToolStripMenuItem,
             this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
-			this.menuStrip1.Size = new System.Drawing.Size(1200, 49);
+			this.menuStrip1.Size = new System.Drawing.Size(1168, 52);
 			this.menuStrip1.TabIndex = 1;
 			this.menuStrip1.Text = "menuStrip1";
 			// 
@@ -80,7 +127,7 @@
             this.loadFileToolStripMenuItem,
             this.generateTemplateToolStripMenuItem1});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-			this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 45);
+			this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 48);
 			this.fileToolStripMenuItem.Text = "File";
 			// 
 			// loadFileToolStripMenuItem
@@ -104,7 +151,7 @@
             this.toolStripMenuItem1,
             this.templatesToolStripMenuItem});
 			this.generationsToolStripMenuItem.Name = "generationsToolStripMenuItem";
-			this.generationsToolStripMenuItem.Size = new System.Drawing.Size(190, 45);
+			this.generationsToolStripMenuItem.Size = new System.Drawing.Size(190, 48);
 			this.generationsToolStripMenuItem.Text = "Generations";
 			// 
 			// toolStripMenuItem1
@@ -120,7 +167,7 @@
             this.toolStripMenuItem9,
             this.toolStripMenuItem10});
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(244, 46);
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(396, 46);
 			this.toolStripMenuItem1.Text = "LifeSpan";
 			// 
 			// lifeSpan60
@@ -196,7 +243,7 @@
             this.blockyBlockToolStripMenuItem,
             this.spaceShipToolStripMenuItem});
 			this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
-			this.templatesToolStripMenuItem.Size = new System.Drawing.Size(244, 46);
+			this.templatesToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
 			this.templatesToolStripMenuItem.Text = "Samples";
 			// 
 			// blinkerToolStripMenuItem
@@ -248,26 +295,12 @@
 			this.spaceShipToolStripMenuItem.Text = "SpaceShip";
 			this.spaceShipToolStripMenuItem.Click += new System.EventHandler(this.spaceShipToolStripMenuItem_Click);
 			// 
-			// boardToolStripMenuItem
-			// 
-			this.boardToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sizeToolStripMenuItem});
-			this.boardToolStripMenuItem.Name = "boardToolStripMenuItem";
-			this.boardToolStripMenuItem.Size = new System.Drawing.Size(108, 45);
-			this.boardToolStripMenuItem.Text = "Board";
-			// 
-			// sizeToolStripMenuItem
-			// 
-			this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
-			this.sizeToolStripMenuItem.Size = new System.Drawing.Size(185, 46);
-			this.sizeToolStripMenuItem.Text = "Size";
-			this.sizeToolStripMenuItem.Click += new System.EventHandler(this.sizeToolStripMenuItem_Click);
-			// 
 			// helpToolStripMenuItem
 			// 
 			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-			this.helpToolStripMenuItem.Size = new System.Drawing.Size(92, 45);
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(92, 48);
 			this.helpToolStripMenuItem.Text = "Help";
+			this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -277,14 +310,14 @@
 			this.tableLayoutPanel1.Controls.Add(this.resetButton, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.beginButton, 1, 0);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 1255);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 1035);
 			this.tableLayoutPanel1.MaximumSize = new System.Drawing.Size(0, 100);
 			this.tableLayoutPanel1.MinimumSize = new System.Drawing.Size(0, 100);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 100);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1168, 100);
 			this.tableLayoutPanel1.TabIndex = 4;
 			// 
 			// resetButton
@@ -292,7 +325,7 @@
 			this.resetButton.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.resetButton.Location = new System.Drawing.Point(3, 3);
 			this.resetButton.Name = "resetButton";
-			this.resetButton.Size = new System.Drawing.Size(594, 94);
+			this.resetButton.Size = new System.Drawing.Size(578, 94);
 			this.resetButton.TabIndex = 0;
 			this.resetButton.Text = "Reset";
 			this.resetButton.UseVisualStyleBackColor = true;
@@ -301,42 +334,29 @@
 			// beginButton
 			// 
 			this.beginButton.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.beginButton.Location = new System.Drawing.Point(603, 3);
+			this.beginButton.Location = new System.Drawing.Point(587, 3);
 			this.beginButton.Name = "beginButton";
-			this.beginButton.Size = new System.Drawing.Size(594, 94);
+			this.beginButton.Size = new System.Drawing.Size(578, 94);
 			this.beginButton.TabIndex = 1;
 			this.beginButton.Text = "Let there be life!";
 			this.beginButton.UseVisualStyleBackColor = true;
 			this.beginButton.Click += new System.EventHandler(this.beginButton_Click);
-			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.pictureBox1.Location = new System.Drawing.Point(0, 49);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(1200, 1206);
-			this.pictureBox1.TabIndex = 5;
-			this.pictureBox1.TabStop = false;
-			this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
 			// 
 			// BoardView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSize = true;
-			this.ClientSize = new System.Drawing.Size(1200, 1355);
-			this.Controls.Add(this.pictureBox1);
+			this.ClientSize = new System.Drawing.Size(1168, 1135);
 			this.Controls.Add(this.tableLayoutPanel1);
+			this.Controls.Add(this.board);
 			this.Controls.Add(this.menuStrip1);
 			this.MainMenuStrip = this.menuStrip1;
 			this.Name = "BoardView";
-			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Conway\'s Game of Life";
-			this.Load += new System.EventHandler(this.BoardView_Load);
 			this.menuStrip1.ResumeLayout(false);
 			this.menuStrip1.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -344,6 +364,8 @@
 
 		#endregion
 		
+
+		private System.Windows.Forms.TableLayoutPanel board;
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
@@ -373,9 +395,6 @@
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
 		private System.Windows.Forms.FolderBrowserDialog TemplateFolderDialog;
 		private System.Windows.Forms.ToolStripMenuItem generateTemplateToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem boardToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sizeToolStripMenuItem;
-		private System.Windows.Forms.PictureBox pictureBox1;
 	}
 }
 

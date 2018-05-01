@@ -117,12 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Simply click the file tab at the top left of the window, and select "Load Template". 
+  <data name="label5.Text" xml:space="preserve">
+    <value>Conway's game of life is meant to be an experiment in simplistic modeling the evolution of life.
 
-You will then be prompted to select the template file that you would like to be loaded.
+Simply select the cells you'd like to achieve the desired initial pattern, or load a template file and press the "Let there be life!" button.
 
-After you select the file, the board will automatically be populated such that any cell for which the loaded file specified 1, will be set to black, or "alive". All other will be set to white, or "dead". </value>
+The program will then continuously spawn new generations of configurations based on the following 3 rules:</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Simply click the file tab at the top left of the window, and select "Generate Template". 
@@ -132,5 +132,12 @@ You will then be prompted to select the folder in which you'd like the template 
 After you select the folder, you may navigate to the folder and open the file "GameOfLifeTemplate.txt". You can customize the template by replacing any 0 with a 1 to indicate that the cell at that location will be colored black, or considered "alive".
 
 It is recommended that you rename the file to a more descriptive name.</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Simply click the file tab at the top left of the window, and select "Load Template". 
+
+You will then be prompted to select the template file that you would like to be loaded.
+
+After you select the file, the board will automatically be populated such that any cell for which the loaded file specified 1, will be set to black, or "alive". All other will be set to white, or "dead". </value>
   </data>
 </root>

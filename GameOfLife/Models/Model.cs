@@ -8,23 +8,17 @@ namespace GameOfLife.Models {
 	public class Model {
 
 		public bool[,] Board { get; set; }
-		private int boardSize = 20;
-		public int BoardSize {
-			get => boardSize;
-			set {
-				this.boardSize = value;
-				this.CreateNewModel();
-			}
-		}
+
+		public int BoardSize = 20;
 
 		public Model() {
 			this.CreateNewModel();
 		}
 
 		private void CreateNewModel() {
-			this.Board = new bool[this.BoardSize, this.BoardSize];
-			for (int i = 0; i < this.BoardSize; i++) {
-				for (int j = 0; j < this.BoardSize; j++) {
+			this.Board = new bool[20, 20];
+			for (int i = 0; i < 20; i++) {
+				for (int j = 0; j < 20; j++) {
 					Board[i, j] = false;
 				}
 			}

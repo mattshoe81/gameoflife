@@ -9,7 +9,6 @@ using System.Threading;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
-using System.Drawing;
 
 namespace GameOfLife.Controllers {
 	public class Controller {
@@ -53,7 +52,7 @@ namespace GameOfLife.Controllers {
 				controller.Reset();
 			} else {
 				controller.model.Board = nextGeneration;
-				for (int i = 0; i < controller.boardSize; i++) {
+				for (int i = 0; i <controller.boardSize; i++) {
 					for (int j = 0; j < controller.boardSize; j++) {
 						controller.view.UpdateCellState(i, j, controller.model.Board[i, j]);
 					}
@@ -198,20 +197,5 @@ namespace GameOfLife.Controllers {
 				MessageBox.Show("Unable to generate template in the given location", "Error: Invalid location");
 			}
 		}
-
-		public void UpdateBoardSize(int size) {
-			this.model.BoardSize = size;
-			this.view.UpdateBoardSize(size);
-		}
-
-		public void UpdatePixel(int column, int row) {
-			this.view.board.SetPixelFromClick(column, row);
-		}
-
-
-
-
-
-
 	}
 }
