@@ -15,7 +15,7 @@ namespace GameOfLife.Controllers {
 
 		private Model model;
 		private BoardView view;
-		private const int BOARD_SIZE = 20;
+		private int boardSize = 20;
 		private int RefreshInterval = 125;
 		private System.Threading.Timer timer;
 		private Assembly assembly;
@@ -26,8 +26,9 @@ namespace GameOfLife.Controllers {
 			this.model = model;
 			this.view = view;
 			this.assembly = Assembly.GetExecutingAssembly();
-			templateLines = new string[20];
-			for (int k = 0; k < 20; k++) {
+			this.boardSize = this.model.BoardSize;
+			templateLines = new string[this.boardSize];
+			for (int k = 0; k < this.boardSize; k++) {
 				templateLines[k] = BLANK_LINE;
 			}
 		}
@@ -51,8 +52,8 @@ namespace GameOfLife.Controllers {
 				controller.Reset();
 			} else {
 				controller.model.Board = nextGeneration;
-				for (int i = 0; i < BOARD_SIZE; i++) {
-					for (int j = 0; j < BOARD_SIZE; j++) {
+				for (int i = 0; i < boardSize; i++) {
+					for (int j = 0; j < boardSize; j++) {
 						controller.view.UpdateCellState(i, j, controller.model.Board[i, j]);
 					}
 				}
@@ -70,10 +71,10 @@ namespace GameOfLife.Controllers {
 		}
 
 		private bool[,] SpawnNextGeneration(bool[,] board) {
-			bool[,] nextGeneration = new bool[BOARD_SIZE, BOARD_SIZE];
+			bool[,] nextGeneration = new bool[boardSize, boardSize];
 
-			for (int row = 0; row < BOARD_SIZE; row++) {
-				for (int column = 0; column < BOARD_SIZE; column++) {
+			for (int row = 0; row < boardSize; row++) {
+				for (int column = 0; column < boardSize; column++) {
 					bool alive = board[column, row];
 					int numberOfNeighbors = this.CountNeighbors(new int[] { column, row }, board);
 					if (alive) {
@@ -107,8 +108,8 @@ namespace GameOfLife.Controllers {
 			int[] northWest = { column - 1, row - 1 };
 			int[][] positions = { north, northEast, east, southEast, south, southWest, west, northWest }; 
 			foreach (int[] neighbor in positions) {
-				if ((neighbor[0] >= 0 && neighbor[0] < BOARD_SIZE)
-						&& (neighbor[1] >= 0 && neighbor[1] < BOARD_SIZE)) {
+				if ((neighbor[0] >= 0 && neighbor[0] < boardSize)
+						&& (neighbor[1] >= 0 && neighbor[1] < boardSize)) {
 					bool alive = board[neighbor[0], neighbor[1]];
 					if (alive) {
 						neighbors++;
@@ -142,8 +143,8 @@ namespace GameOfLife.Controllers {
 		}
 
 		private void UpdateBoardFromStringArray(string[] lines) {
-			for (int row = 0; row < BOARD_SIZE; row++) {
-				for (int column = 0; column < BOARD_SIZE; column++) {
+			for (int row = 0; row < boardSize; row++) {
+				for (int column = 0; column < boardSize; column++) {
 					if (lines[row][column] == '1') {
 						this.model.Board[column, row] = true;
 						this.view.UpdateCellState(column, row, true);

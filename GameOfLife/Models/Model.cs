@@ -9,6 +9,8 @@ namespace GameOfLife.Models {
 
 		public bool[,] Board { get; set; }
 
+		public int BoardSize = 20;
+
 		public Model() {
 			this.CreateNewModel();
 		}
