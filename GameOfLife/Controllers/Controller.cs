@@ -52,8 +52,8 @@ namespace GameOfLife.Controllers {
 				controller.Reset();
 			} else {
 				controller.model.Board = nextGeneration;
-				for (int i = 0; i < boardSize; i++) {
-					for (int j = 0; j < boardSize; j++) {
+				for (int i = 0; i < controller.boardSize; i++) {
+					for (int j = 0; j < controller.boardSize; j++) {
 						controller.view.UpdateCellState(i, j, controller.model.Board[i, j]);
 					}
 				}
@@ -197,5 +197,16 @@ namespace GameOfLife.Controllers {
 				MessageBox.Show("Unable to generate template in the given location", "Error: Invalid location");
 			}
 		}
+
+		public void UpdateBoardSize(int size) {
+			this.model.BoardSize = size;
+			this.view.UpdateBoardSize(size);
+		}
+
+
+
+
+
+
 	}
 }

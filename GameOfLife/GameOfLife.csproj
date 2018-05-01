@@ -63,6 +63,12 @@
     <Compile Include="Views\HowToForm.Designer.cs">
       <DependentUpon>HowToForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SizeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SizeForm.Designer.cs">
+      <DependentUpon>SizeForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\BoardView.resx">
       <DependentUpon>BoardView.cs</DependentUpon>
     </EmbeddedResource>
@@ -77,6 +83,9 @@
     </Compile>
     <EmbeddedResource Include="Views\HowToForm.resx">
       <DependentUpon>HowToForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SizeForm.resx">
+      <DependentUpon>SizeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
