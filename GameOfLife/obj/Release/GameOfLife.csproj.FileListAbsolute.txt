@@ -10,3 +10,4 @@ C:\Users\matts\source\repos\GameOfLife\GameOfLife\obj\Release\GameOfLife.exe
 C:\Users\matts\source\repos\GameOfLife\GameOfLife\obj\Release\GameOfLife.pdb
 C:\Users\matts\source\repos\GameOfLife\GameOfLife\obj\Release\GameOfLife.Views.HowToForm.resources
 C:\Users\matts\source\repos\GameOfLife\GameOfLife\obj\Release\GameOfLife.Views.SizeForm.resources
+C:\Users\matts\source\repos\GameOfLife\GameOfLife\obj\Release\GameOfLife.Views.BoardViewBitmap.resources

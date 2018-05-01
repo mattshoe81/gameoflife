@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameOfLife.Controllers;
 using System.IO;
+using System.Drawing.Imaging;
 
 namespace GameOfLife.Views {
 	public partial class BoardView : Form {
 
 		private Controller controller;
+		public BoardBitmap board;
 
 		public void RegisterObserver(Controller controller) {
 			this.controller = controller;
@@ -21,46 +23,10 @@ namespace GameOfLife.Views {
 
 		public BoardView() {
 			InitializeComponent();
-			typeof(TableLayoutPanel)
-   .GetProperty("DoubleBuffered",
-	  System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
-   .SetValue(this.board, true, null);
-			this.board.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-			this.FormBorderStyle = FormBorderStyle.FixedSingle;
-			for (int i = 0; i < board.ColumnCount; i++) {
-				for (int j = 0; j < board.RowCount; j++) {
-					BoardPanel panel = new BoardPanel(i, j);
-					panel.Click += BoardPanel_Click;
-					panel.Margin = Padding.Empty;
-					panel.Dock = DockStyle.Fill;
-					panel.BackColor = Color.White;
-					board.Controls.Add(panel);
-					this.board.SetCellPosition(panel, new TableLayoutPanelCellPosition(i, j));
-				}
-			}
+			this.board = new BoardBitmap(this.pictureBox1.Width, this.pictureBox1.Height);
+			this.pictureBox1.Image = this.board.GetBoard();
 		}
-
-		public BoardView(int boardSize) {
-			InitializeComponent();
-			this.board.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-			this.board.ColumnCount = boardSize;
-			this.board.RowCount = boardSize;
-			this.FormBorderStyle = FormBorderStyle.FixedSingle;
-			for (int i = 0; i < board.ColumnCount; i++) {
-				for (int j = 0; j < board.RowCount; j++) {
-					BoardPanel panel = new BoardPanel(i, j);
-					panel.Click += BoardPanel_Click;
-					panel.Margin = Padding.Empty;
-					panel.Dock = DockStyle.Fill;
-					panel.BackColor = Color.White;
-					board.Controls.Add(panel);
-					this.board.SetCellPosition(panel, new TableLayoutPanelCellPosition(i, j));
-				}
-			}
-			MessageBox.Show("Made it through boardview constructor");
-		}
-
-		public TableLayoutPanel Board => this.board;
+		
 
 		protected void BoardPanel_Click(object sender, EventArgs e) {
 			BoardPanel panel = (BoardPanel) sender;
@@ -68,12 +34,6 @@ namespace GameOfLife.Views {
 		}
 
 		public void UpdateCellState(int column, int row, bool selected) {
-			BoardPanel panel = (BoardPanel) this.board.GetControlFromPosition(column,row);
-			if (selected) {
-				panel.BackColor = Color.Black;
-			} else {
-				panel.BackColor = Color.White;
-			}
 		}
 
 		private void beginButton_Click(object sender, EventArgs e) {
@@ -85,9 +45,6 @@ namespace GameOfLife.Views {
 		}
 
 		public void Reset() {
-			foreach (BoardPanel panel in this.board.Controls) {
-				panel.BackColor = Color.White;
-			}
 		}
 
 		private void loadFileToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -199,36 +156,12 @@ namespace GameOfLife.Views {
 		}
 
 		public void UpdateBoardSize(int boardSize) {
-			typeof(TableLayoutPanel).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(this.board, true, null);
-			while (this.board.Controls.Count > 0) {
-				this.board.Controls[0].Dispose();
-			}
-			this.board.ColumnStyles.Clear();
-			this.board.RowStyles.Clear();
-			for (int k = 0; k < boardSize; k++) {
-				float percent = (float) 100 / boardSize;
-				ColumnStyle style = new ColumnStyle(SizeType.Percent, percent);
-				RowStyle rowStyle = new RowStyle(SizeType.Percent, percent);
-				this.board.ColumnStyles.Add(style);
-				this.board.RowStyles.Add(rowStyle);
-			}
-			
-			this.board.Dock = DockStyle.Fill;
-			this.board.ColumnCount = boardSize;
-			this.board.RowCount = boardSize;
-			this.FormBorderStyle = FormBorderStyle.FixedSingle;
-			for (int i = 0; i < board.ColumnCount; i++) {
-				for (int j = 0; j < board.RowCount; j++) {
-					BoardPanel panel = new BoardPanel(i, j);
-					panel.Click += BoardPanel_Click;
-					panel.Margin = Padding.Empty;
-					panel.Dock = DockStyle.Fill;
-					panel.BackColor = Color.White;
-					board.Controls.Add(panel);
-					this.board.SetCellPosition(panel, new TableLayoutPanelCellPosition(i, j));
-				}
-			}
-			this.board.Refresh();
+
+		}
+
+		private void pictureBox1_MouseClick(object sender, MouseEventArgs e) {
+			this.controller.UpdatePixel(e.X, e.Y);
+			this.pictureBox1.Image = this.board.GetBoard();
 		}
 	}
 }
