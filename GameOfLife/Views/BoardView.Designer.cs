@@ -50,6 +50,9 @@
 			this.rPentominoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.blockyBlockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.spaceShipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.TemplateFolderDialog = new System.Windows.Forms.FolderBrowserDialog();
+			this.generateTemplateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
@@ -110,7 +113,8 @@
 			this.menuStrip1.ImageScalingSize = new System.Drawing.Size(40, 40);
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.generationsToolStripMenuItem});
+            this.generationsToolStripMenuItem,
+            this.helpToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Size = new System.Drawing.Size(1168, 52);
@@ -120,7 +124,8 @@
 			// fileToolStripMenuItem
 			// 
 			this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadFileToolStripMenuItem});
+            this.loadFileToolStripMenuItem,
+            this.generateTemplateToolStripMenuItem1});
 			this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
 			this.fileToolStripMenuItem.Size = new System.Drawing.Size(75, 48);
 			this.fileToolStripMenuItem.Text = "File";
@@ -128,8 +133,9 @@
 			// loadFileToolStripMenuItem
 			// 
 			this.loadFileToolStripMenuItem.Name = "loadFileToolStripMenuItem";
-			this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(250, 46);
-			this.loadFileToolStripMenuItem.Text = "Load File";
+			this.loadFileToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
+			this.loadFileToolStripMenuItem.Text = "Load Template";
+			this.loadFileToolStripMenuItem.ToolTipText = "Load a template file which will automatically populate the board.";
 			this.loadFileToolStripMenuItem.Click += new System.EventHandler(this.loadFileToolStripMenuItem_Click);
 			// 
 			// generationsToolStripMenuItem
@@ -322,6 +328,20 @@
 			this.spaceShipToolStripMenuItem.Text = "SpaceShip";
 			this.spaceShipToolStripMenuItem.Click += new System.EventHandler(this.spaceShipToolStripMenuItem_Click);
 			// 
+			// helpToolStripMenuItem
+			// 
+			this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+			this.helpToolStripMenuItem.Size = new System.Drawing.Size(92, 48);
+			this.helpToolStripMenuItem.Text = "Help";
+			this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+			// 
+			// generateTemplateToolStripMenuItem1
+			// 
+			this.generateTemplateToolStripMenuItem1.Name = "generateTemplateToolStripMenuItem1";
+			this.generateTemplateToolStripMenuItem1.Size = new System.Drawing.Size(396, 46);
+			this.generateTemplateToolStripMenuItem1.Text = "Generate Template";
+			this.generateTemplateToolStripMenuItem1.Click += new System.EventHandler(this.generateTemplateToolStripMenuItem1_Click);
+			// 
 			// BoardView
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -372,6 +392,9 @@
 		private System.Windows.Forms.ToolStripMenuItem rPentominoToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem blockyBlockToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem spaceShipToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+		private System.Windows.Forms.FolderBrowserDialog TemplateFolderDialog;
+		private System.Windows.Forms.ToolStripMenuItem generateTemplateToolStripMenuItem1;
 	}
 }
 

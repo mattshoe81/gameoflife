@@ -19,11 +19,17 @@ namespace GameOfLife.Controllers {
 		private int RefreshInterval = 125;
 		private System.Threading.Timer timer;
 		private Assembly assembly;
+		private readonly string[] templateLines; 
+		private const string BLANK_LINE = "00000000000000000000";
 
 		public Controller(Model model, BoardView view) {
 			this.model = model;
 			this.view = view;
 			this.assembly = Assembly.GetExecutingAssembly();
+			templateLines = new string[20];
+			for (int k = 0; k < 20; k++) {
+				templateLines[k] = BLANK_LINE;
+			}
 		}
 
 		public void HandlePanelClick(int column, int row) {
@@ -126,8 +132,13 @@ namespace GameOfLife.Controllers {
 		}
 
 		public void LoadFile(string filePath) {
-			string[] lines = File.ReadAllLines(filePath);
-			UpdateBoardFromStringArray(lines);
+			try {
+				string[] lines = File.ReadAllLines(filePath);
+				UpdateBoardFromStringArray(lines);
+			} catch {
+				MessageBox.Show("File is not in correct format. \n\nFile must have .txt extension and mustcontain only a  20x20 matrix of 1 and 0 where 1 indicates a black cell and 0 indicates a white cell.\n\nThere must not be any whitespace or characters other than 1 or 0.", "Unable to load template");
+			}
+			
 		}
 
 		private void UpdateBoardFromStringArray(string[] lines) {
@@ -164,6 +175,26 @@ namespace GameOfLife.Controllers {
 
 		public void MakeTemplate(string resourceName) {
 			this.LoadTemplate(resourceName);
+		}
+
+		public void GenerateUserTemplate(string folderPath) {
+			try {
+				string fileName = "/GameOfLifeTemplate";
+				string extension = ".txt";
+				string file = folderPath + fileName + extension;
+				int counter = 0;
+				while (File.Exists(file)) {
+					counter++;
+					file = folderPath + fileName + counter + extension;
+				}
+				StreamWriter writer = new StreamWriter(file);
+				foreach (string line in templateLines) {
+					writer.WriteLine(line);
+				}
+				writer.Close();
+			} catch {
+				MessageBox.Show("Unable to generate template in the given location", "Error: Invalid location");
+			}
 		}
 	}
 }

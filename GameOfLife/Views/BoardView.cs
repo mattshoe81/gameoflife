@@ -138,5 +138,30 @@ namespace GameOfLife.Views {
 		private void spaceShipToolStripMenuItem_Click(object sender, EventArgs e) {
 			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Spaceship.txt");
 		}
+
+		private void generateTemplateToolStripMenuItem_Click(object sender, EventArgs e) {
+			this.TemplateFolderDialog.ShowDialog();
+			try {
+				string folderPath = this.TemplateFolderDialog.SelectedPath;
+				this.controller.GenerateUserTemplate(folderPath);
+			} catch {
+				MessageBox.Show("Unable to generate template in the given location", "Error: Invalid location");
+			}
+		}
+
+		private void generateTemplateToolStripMenuItem1_Click(object sender, EventArgs e) {
+			this.TemplateFolderDialog.ShowDialog();
+			try {
+				string folderPath = this.TemplateFolderDialog.SelectedPath;
+				this.controller.GenerateUserTemplate(folderPath);
+			} catch {
+				MessageBox.Show("Unable to generate template in the given location", "Error: Invalid location");
+			}
+		}
+
+		private void helpToolStripMenuItem_Click(object sender, EventArgs e) {
+			HowToForm howToForm = new HowToForm();
+			howToForm.Show();
+		}
 	}
 }
