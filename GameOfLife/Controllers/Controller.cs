@@ -16,7 +16,7 @@ namespace GameOfLife.Controllers {
 		private Model model;
 		private BoardView view;
 		private int boardSize = 20;
-		private int RefreshInterval = 125;
+		private int RefreshInterval = 60;
 		private System.Threading.Timer timer;
 		private Assembly assembly;
 		private readonly string[] templateLines; 
@@ -175,6 +175,7 @@ namespace GameOfLife.Controllers {
 		}
 
 		public void MakeTemplate(string resourceName) {
+			this.Reset();
 			this.LoadTemplate(resourceName);
 		}
 
