@@ -185,7 +185,7 @@
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(819, 136);
 			this.label8.TabIndex = 3;
-			this.label8.Text = "If a cell is alive and has 1 or 0 neighbors, it will die of underpopulation.";
+			this.label8.Text = "If a cell is alive and has 1 or 0 neighbors, it will die of loneliness.";
 			this.label8.Click += new System.EventHandler(this.label8_Click);
 			// 
 			// label7

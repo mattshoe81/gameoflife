@@ -141,8 +141,9 @@
 			// generateTemplateToolStripMenuItem1
 			// 
 			this.generateTemplateToolStripMenuItem1.Name = "generateTemplateToolStripMenuItem1";
-			this.generateTemplateToolStripMenuItem1.Size = new System.Drawing.Size(382, 46);
+			this.generateTemplateToolStripMenuItem1.Size = new System.Drawing.Size(396, 46);
 			this.generateTemplateToolStripMenuItem1.Text = "Generate Template";
+			this.generateTemplateToolStripMenuItem1.ToolTipText = "Generates a blank template in the selected folder";
 			this.generateTemplateToolStripMenuItem1.Click += new System.EventHandler(this.generateTemplateToolStripMenuItem1_Click);
 			// 
 			// generationsToolStripMenuItem
@@ -169,6 +170,7 @@
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			this.toolStripMenuItem1.Size = new System.Drawing.Size(396, 46);
 			this.toolStripMenuItem1.Text = "LifeSpan";
+			this.toolStripMenuItem1.ToolTipText = "How often a new generation is spawned, in milliseconds.";
 			// 
 			// lifeSpan60
 			// 
@@ -245,6 +247,7 @@
 			this.templatesToolStripMenuItem.Name = "templatesToolStripMenuItem";
 			this.templatesToolStripMenuItem.Size = new System.Drawing.Size(396, 46);
 			this.templatesToolStripMenuItem.Text = "Samples";
+			this.templatesToolStripMenuItem.ToolTipText = "Predefined configurations that will automatically populate the board.";
 			// 
 			// blinkerToolStripMenuItem
 			// 
