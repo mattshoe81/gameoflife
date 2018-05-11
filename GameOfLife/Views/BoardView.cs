@@ -9,42 +9,84 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GameOfLife.Controllers;
 using System.IO;
+using GameOfLife.Models;
 
 namespace GameOfLife.Views {
-	public partial class BoardView : Form {
+	public partial class BoardView : Form, IBoardView {
 
-		private Controller controller;
+		/// <summary>
+		/// Reference to the controller
+		/// </summary>
+		private IBoardController controller;
 
-		public void RegisterObserver(Controller controller) {
+		/// <summary>
+		/// Registers the controller reference to pass events.
+		/// </summary>
+		/// <param name="controller"></param>
+		public void RegisterObserver(IBoardController controller) {
 			this.controller = controller;
 		}
 
+		/// <summary>
+		/// Constructor.
+		/// </summary>
 		public BoardView() {
 			InitializeComponent();
-			this.board.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+			// Show cell borders in the tablelayoutpanel representing the board
+			this.Board.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+			// Disallow resizing of window
 			this.FormBorderStyle = FormBorderStyle.FixedSingle;
-			for (int i = 0; i < board.ColumnCount; i++) {
-				for (int j = 0; j < board.RowCount; j++) {
+			// Assign repetitive click events in one neat, tidy place
+			this.AssignLifeSpanClickEvents();
+			this.AssignTemplateClickEvents();
+			/*
+			 * Initialize every cell in the board by adding a custom Panel, "BoardPanel", to it and
+			 * setting the panel to fill the cell, color it white, and set its click event 
+			 */
+			for (int i = 0; i < Board.ColumnCount; i++) {
+				for (int j = 0; j < Board.RowCount; j++) {
 					BoardPanel panel = new BoardPanel(i, j);
 					panel.Click += BoardPanel_Click;
 					panel.Margin = Padding.Empty;
 					panel.Dock = DockStyle.Fill;
 					panel.BackColor = Color.White;
-					board.Controls.Add(panel);
-					this.board.SetCellPosition(panel, new TableLayoutPanelCellPosition(i, j));
+					Board.Controls.Add(panel);
+					this.Board.SetCellPosition(panel, new TableLayoutPanelCellPosition(i, j));
 				}
-			}
+			}			
 		}
 
-		public TableLayoutPanel Board => this.board;
+		private void AssignLifeSpanClickEvents() {
+			this.LifeSpan60MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(60)); };
+			this.LifeSpan125MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(125)); };
+			this.LifeSpan250MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(250)); };
+			this.LifeSpan375MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(375)); };
+			this.LifeSpan500MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(500)); };
+			this.LifeSpan625MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(625)); };
+			this.LifeSpan750MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(750)); };
+			this.LifeSpan875MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(875)); };
+			this.LifeSpan100MenuItem.Click += (sender, args) => { RefreshRateChange_Click(sender, new RefreshRateEventArgs(1000)); };
+
+		}
+
+		private void AssignTemplateClickEvents() {
+			this.BlinkerMenuItem.Click += (sender, args) => { this.Template_Click(sender, new TemplateEventArgs(TemplateType.BLINKER)); };
+			this.GliderMenuItem.Click += (sender, args) => { this.Template_Click(sender, new TemplateEventArgs(TemplateType.GLIDER)); };
+			this.DiehardMenuItem.Click += (sender, args) => { this.Template_Click(sender, new TemplateEventArgs(TemplateType.DIE_HARD)); };
+			this.PulsarMenuItem.Click += (sender, args) => { this.Template_Click(sender, new TemplateEventArgs(TemplateType.PULSAR)); };
+			this.RPentominoMenuItem.Click += (sender, args) => { this.Template_Click(sender, new TemplateEventArgs(TemplateType.RPENTOMINO)); };
+			this.BlockyBlockMenuItem.Click += (sender, args) => { this.Template_Click(sender, new TemplateEventArgs(TemplateType.BLOCKY_BLOCK)); };
+			this.SpaceShipMenuItem.Click += (sender, args) => { this.Template_Click(sender, new TemplateEventArgs(TemplateType.SPACESHIP)); };
+
+		}
 
 		protected void BoardPanel_Click(object sender, EventArgs e) {
 			BoardPanel panel = (BoardPanel) sender;
-			this.controller.HandlePanelClick(panel.Row, panel.Column);
+			this.controller.HandleBoardCellClick(panel.Row, panel.Column);
 		}
 
 		public void UpdateCellState(int column, int row, bool selected) {
-			BoardPanel panel = (BoardPanel) this.board.GetControlFromPosition(column,row);
+			BoardPanel panel = (BoardPanel) this.Board.GetControlFromPosition(column, row);
 			if (selected) {
 				panel.BackColor = Color.Black;
 			} else {
@@ -52,116 +94,49 @@ namespace GameOfLife.Views {
 			}
 		}
 
-		private void beginButton_Click(object sender, EventArgs e) {
-			this.controller.HandleBeginClick();
-		}
-
-		private void resetButton_Click(object sender, EventArgs e) {
-			this.controller.Reset();
-		}
-
 		public void Reset() {
-			foreach (BoardPanel panel in this.board.Controls) {
+			foreach (BoardPanel panel in this.Board.Controls) {
 				panel.BackColor = Color.White;
 			}
 		}
 
-		private void loadFileToolStripMenuItem_Click(object sender, EventArgs e) {
+		private void LoadFileMenuItem_Click(object sender, EventArgs e) {
 			this.LoadFileDialog.ShowDialog();
 			string filePath = LoadFileDialog.FileName;
-			if (File.Exists(filePath)) { 
-				this.controller.LoadFile(filePath);
+			if (File.Exists(filePath)) {
+				this.controller.HandleLoadCustomTemplate(filePath);
 			}
-		
 		}
 
-		private void lifeSpan60_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(60);
+		private void RefreshRateChange_Click(object sender, RefreshRateEventArgs e) {
+			this.controller.HandleRefreshRateChange(e.RefreshRate);
 		}
 
-		private void lifeSpan125_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(125);
+		private void Template_Click(object sender, TemplateEventArgs e) {
+			this.controller.HandleLoadTemplate(e.TypeOfTemplate);
 		}
 
-		private void lifeSpan250_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(250);
-		}
-
-		private void lifeSpan375_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(375);
-		}
-
-		private void lifeSpan500_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(500);
-		}
-
-		private void lifeSpan625_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(625);
-		}
-
-		private void lifeSpan750_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(750);
-		}
-
-		private void lifeSpan875_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(875);
-		}
-
-		private void lifeSpan1000_Click(object sender, EventArgs e) {
-			this.controller.SetRefreshInterval(1000);
-		}
-
-		private void blinkerToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Blinker.txt");
-		}
-
-		private void gliderToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Glider.txt");
-		}
-
-		private void diehardToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Diehard.txt");
-		}
-
-		private void pulsarToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Pulsar.txt");
-		}
-
-		private void rPentominoToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.R-Pentomino.txt");
-		}
-
-		private void blockyBlockToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.BlockyBlock.txt");
-		}
-
-		private void spaceShipToolStripMenuItem_Click(object sender, EventArgs e) {
-			this.controller.MakeTemplate("GameOfLife.Controllers.Templates.Spaceship.txt");
-		}
-
-		private void generateTemplateToolStripMenuItem_Click(object sender, EventArgs e) {
+		private void GenerateTemplateMenuItem_Click(object sender, EventArgs e) {
 			this.TemplateFolderDialog.ShowDialog();
 			try {
 				string folderPath = this.TemplateFolderDialog.SelectedPath;
-				this.controller.GenerateUserTemplate(folderPath);
+				this.controller.HandleGenerateBlankTemplate(folderPath);
 			} catch {
 				MessageBox.Show("Unable to generate template in the given location", "Error: Invalid location");
 			}
 		}
 
-		private void generateTemplateToolStripMenuItem1_Click(object sender, EventArgs e) {
-			this.TemplateFolderDialog.ShowDialog();
-			try {
-				string folderPath = this.TemplateFolderDialog.SelectedPath;
-				this.controller.GenerateUserTemplate(folderPath);
-			} catch {
-				MessageBox.Show("Unable to generate template in the given location", "Error: Invalid location");
-			}
-		}
-
-		private void helpToolStripMenuItem_Click(object sender, EventArgs e) {
+		private void HelpMenuItem_Click(object sender, EventArgs e) {
 			HowToForm howToForm = new HowToForm();
 			howToForm.Show();
+		}
+
+		private void BeginButton_Click(object sender, EventArgs e) {
+			this.controller.HandleBeginButtonClick();
+		}
+
+		private void ResetButton_Click(object sender, EventArgs e) {
+			this.controller.Reset();
 		}
 	}
 }

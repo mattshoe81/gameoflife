@@ -44,8 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\Controller.cs" />
-    <Compile Include="Models\Model.cs" />
+    <Compile Include="Controllers\BoardController.cs" />
+    <Compile Include="Controllers\LifeSimulator.cs" />
+    <Compile Include="Controllers\IBoardController.cs" />
+    <Compile Include="Controllers\ILifeSimulator.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Models\IBoardModel.cs" />
+    <Compile Include="Models\BoardModel.cs" />
+    <Compile Include="Models\RefreshRateEventArgs.cs" />
+    <Compile Include="Models\Template.cs" />
+    <Compile Include="Models\TemplateEventArgs.cs" />
     <Compile Include="Views\BoardPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -63,6 +71,7 @@
     <Compile Include="Views\HowToForm.Designer.cs">
       <DependentUpon>HowToForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\IBoardView.cs" />
     <EmbeddedResource Include="Views\BoardView.resx">
       <DependentUpon>BoardView.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,21 +101,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\Templates\Blinker.txt" />
+    <EmbeddedResource Include="StaticFiles\Templates\Blinker.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\Templates\Diehard.txt" />
-    <EmbeddedResource Include="Controllers\Templates\Glider.txt" />
-    <EmbeddedResource Include="Controllers\Templates\Pulsar.txt" />
+    <EmbeddedResource Include="StaticFiles\Templates\Diehard.txt" />
+    <EmbeddedResource Include="StaticFiles\Templates\Glider.txt" />
+    <EmbeddedResource Include="StaticFiles\Templates\Pulsar.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\Templates\R-Pentomino.txt" />
+    <EmbeddedResource Include="StaticFiles\Templates\R-Pentomino.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\Templates\BlockyBlock.txt" />
+    <EmbeddedResource Include="StaticFiles\Templates\BlockyBlock.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\Templates\Spaceship.txt" />
+    <EmbeddedResource Include="StaticFiles\Templates\Spaceship.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

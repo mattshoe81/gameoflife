@@ -17,9 +17,9 @@ namespace GameOfLife {
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 
-			Model model = new Model();
+			IBoardModel model = new BoardModel();
 			BoardView view = new BoardView();
-			Controller controller = new Controller(model, view);
+			IBoardController controller = new BoardController(model, view);
 			view.RegisterObserver(controller);
 			Application.Run(view);
 		}
